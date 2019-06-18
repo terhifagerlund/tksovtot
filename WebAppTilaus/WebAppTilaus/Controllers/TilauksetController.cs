@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -53,7 +53,7 @@ namespace WebAppTilaus.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "TilausID,AsiakasID,Toimitusosoite,Postinumero,Tilauspvm,Toimituspvm")] Tilaukset tilaukset)
-        {
+        {          
             if (ModelState.IsValid)
             {
                 db.Tilaukset.Add(tilaukset);

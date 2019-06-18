@@ -27,9 +27,18 @@ namespace WebAppTilaus.Controllers
         }
         public ActionResult Index2()
         {
-            List<Tuotteet> model = db.Tuotteet.ToList();
-            return View(model);
+            if (Session["UserName"] == null)
+            {
+                return RedirectToAction("login", "home");
+            }
+            else
+            {
+                List<Tuotteet> model = db.Tuotteet.ToList();
+                return View(model);
+            }
         }
+
+
         public ActionResult Edit(int? id)
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

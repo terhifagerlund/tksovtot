@@ -20,13 +20,11 @@ namespace WebAppTilaus.Controllers
                 return RedirectToAction("login", "home");
             }
             else
-            { 
-            //var asiakkaat = db.Asiakkaat;
-            //return View(asiakkaat.ToList());
-            List<Asiakkaat> model = db.Asiakkaat.ToList();
-                //db.Dispose();
+            {
+                List<Asiakkaat> model = db.Asiakkaat.ToList();
                 return View(model);
             }
+                         
         }
         public ActionResult Edit(int? id)
         {

@@ -10,25 +10,28 @@
     @Html.ActionLink("Luo uusi", "Create")
 </p>
 <table class="table table-striped">
-    <tr>
-        <th>@Html.DisplayNameFor(model => model.Maara)</th>
-        <th>@Html.DisplayNameFor(model => model.Ahinta)</th>
-        <th>@Html.DisplayNameFor(model => model.Tilaukset.Toimitusosoite)</th>
-        <th>@Html.DisplayNameFor(model => model.Tuotteet.Nimi)</th>>
-        <th></th>
-    </tr>
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Maara)</th>
+            <th>@Html.DisplayNameFor(model => model.Ahinta)</th>
+            <th>@Html.DisplayNameFor(model => model.Tilaukset.Toimitusosoite)</th>
+            <th>@Html.DisplayNameFor(model => model.Tuotteet.Nimi)</th>>
+            <th></th>
+        </tr>
+    </thead> 
 
-        @foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.Maara)</td>
                 <td>@Html.DisplayFor(modelItem => item.Ahinta)</td>
                 <td>@Html.DisplayFor(modelItem => item.Tilaukset.Toimitusosoite)</td>
                 <td>@Html.DisplayFor(modelItem => item.Tuotteet.Nimi)</td>
-        <td>
-            @Html.ActionLink("Muokkaa", "Edit", new { id = item.TilausriviID }) |
-            @Html.ActionLink("Poista", "Delete", new { id = item.TilausriviID })
-        </td>
-    </tr>
+                <td>
+                    @Html.ActionLink("Muokkaa", "Edit", new { id = item.TilausriviID }) |
+                    @Html.ActionLink("Poista", "Delete", new { id = item.TilausriviID })
+                </td>
+            </tr>
         }
 
-        </table>
+</table>

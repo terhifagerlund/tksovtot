@@ -9,7 +9,7 @@
     <div class="row">
 
         <p>
-            @Html.ActionLink("Create New", "Create")
+            @Html.ActionLink("Luo uusi", "Create")
         </p>
         @foreach (var item in Model)
         {
@@ -18,23 +18,19 @@
                     <h3 class="card-header">@item.Nimi</h3>
                     <div class="card-body">
                         <h5 class="card-title">@item.Ahinta</h5>
-                        <h6 class="card-subtitle text-muted">@item.Kuva</h6>
+                        @* <h6 class="card-subtitle text-muted">@item.Kuva</h6>*@ 
                     </div>
                     <img style="height: 200px; width: 100%; display: block;" src="@item.ImageLink" alt="@item.ImageLink">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">@item.TuoteID</li>
                         <li class="list-group-item">@item.Tilausrivit</li>
-                        @*<li class="list-group-item">Vestibulum at eros</li>*@
+                        <li>
+                            @Html.ActionLink("Muokkaa", "Edit", new { id = item.TuoteID }) |
+                            @Html.ActionLink("Poista", "Delete", new { id = item.TuoteID })
+                        </li>
                     </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
                 </div>
             </div>
-            @Html.ActionLink("Muokkaa", "Edit", new { id = item.TuoteID })
-
-            @Html.ActionLink("Poista", "Delete", new { id = item.TuoteID })
         }
     </div>
 </div>
